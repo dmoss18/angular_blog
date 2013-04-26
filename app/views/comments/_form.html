@@ -1,0 +1,14 @@
+<div ng-controller="CommentsFormCtrl">
+  <h2>Add a comment:</h2>
+  <div class="field">
+    Commenter<br />
+    <input type="text" size="30" ng-model="newComment.commenter"/>
+  </div>
+  <div class="field">
+    Body<br />
+    <textarea rows="5" cols="40" ng-model="newComment.body"></textarea>
+  </div>
+  <div class="actions">
+    <button ng-click="addComment()" class="btn">Create Comment</button>
+  </div>
+</div>

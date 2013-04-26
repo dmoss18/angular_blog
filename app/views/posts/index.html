@@ -1,0 +1,11 @@
+<div class="row-fluid show-grid" ng-repeat="post in posts">
+  <div class="span12">
+    <h2>{{ post.title }} <small>by {{post.name}}</small></h2>
+    <p>{{ post.content }}</p>
+    <p><a href="#/posts/{{post.id}}" class="btn">Read more</a></p>
+  </div>
+</div>
+
+<br />
+
+<a href="#/posts/new" class="btn">New Post</a>

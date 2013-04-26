@@ -1,0 +1,22 @@
+<div class="hero-unit">
+  <h1>{{post.title }}</h1>
+  <small>by {{post.name}}</small>
+  <p>{{post.content}}</p>
+
+  <div class="row-fluid">
+    <div class="span12"><small><b>Tags: </b>{{tagsString}}</small></div>
+  </div>
+</div>
+
+
+<table class="table table-striped">
+  <tr ng-repeat="comment in post.comments">  
+    <td>
+      <p>{{comment.body}}</p>
+      <p><em>{{comment.commenter}}</em></p>
+    </td>
+  </tr>
+</table>
+
+<div ng-include="'app/views/comments/_form.html'"></div>
+<br />

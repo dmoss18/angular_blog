@@ -4,7 +4,8 @@ var util = require('util'),
     http = require('http'),
     fs = require('fs'),
     url = require('url'),
-    events = require('events');
+    events = require('events'),
+    root_path = './app/index.html';
 
 var DEFAULT_PORT = 8000;
 
@@ -90,6 +91,10 @@ StaticServlet.prototype.handleRequest = function(req, res) {
   var path = ('./' + req.url.pathname).replace('//','/').replace(/%(..)/g, function(match, hex){
     return String.fromCharCode(parseInt(hex, 16));
   });
+  if (req.url.pathname == '/') {
+    util.puts('req.url.pathname == / is true ------');
+    return self.sendFile_(req, res, root_path);
+  }
   var parts = path.split('/');
   if (parts[parts.length-1].charAt(0) === '.')
     return self.sendForbidden_(req, res, path);
@@ -165,6 +170,7 @@ StaticServlet.prototype.sendRedirect_ = function(req, res, redirectUrl) {
 };
 
 StaticServlet.prototype.sendFile_ = function(req, res, path) {
+  util.puts('in sendFile_ path = ' + path);
   var self = this;
   var file = fs.createReadStream(path);
   res.writeHead(200, {

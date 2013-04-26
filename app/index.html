@@ -1,28 +1,57 @@
-<!doctype html>
-<html lang="en" ng-app="myApp">
+<!DOCTYPE html>
+<html lang="en" ng-app="blogangular">
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS App</title>
-  <link rel="stylesheet" href="css/app.css"/>
+  <title>AngularJS Blog</title>
+  <link rel="stylesheet" href="app/css/app.css"/>
+  <link rel="stylesheet" href="app/css/bootstrap.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    }
+  </style>
+  <link rel="stylesheet" href="app/css/bootstrap-responsive.css"/>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+  <div class="container">
+    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="/" class="brand">BlogAngular</a>
+    <div class="nav-collapse collapse">
+      <ul class="nav">
+        <li><a href="#/home">Home</a></li>
+        <li><a href="#/posts">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+  </div>
+</div>
 
+<div class="container" >
   <div ng-view></div>
+  <hr>
 
-  <div>Angular seed app: v<span app-version></span></div>
+  <footer>
+    <p>&copy; Devin Moss</p>
+  </footer>
+</div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
   -->
-  <script src="lib/angular/angular.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/directives.js"></script>
+  <script src="app/lib/angular/angular.js"></script>
+  <script src="app/lib/angular/angular-resource.min.js"></script>
+  <script src="app/js/app.js"></script>
+  <script src="app/js/services.js"></script>
+  <script src="app/js/controllers.js"></script>
+  <script src="app/js/filters.js"></script>
+  <script src="app/js/directives.js"></script>
+  <script src="app/lib/jquery-1.9.1.min.js"></script>
+  <script src="app/lib/bootstrap.js"></script>
 </body>
 </html>
